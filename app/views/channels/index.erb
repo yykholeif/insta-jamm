@@ -1,0 +1,24 @@
+<h1>Welcome to our subscription service! Please view all our channels below!</h1>
+
+<ul>
+    <% @channels.each do |channel| %>
+    <li>
+      <a href="/channels/<%= channel.id %>"><%= channel.name %></a>
+      </li>
+      <% end %>
+    </ul>
+
+    <% if !logged_in? %>
+    <form action='/users/new' method='GET'>
+      <input type='submit' value='register here'> <br><br>
+      <a href='/sessions/new'>Log in</a>
+    </form>
+
+    <% else %>
+
+    <form action= '/sessions' method='POST'>
+      <input type="hidden" name='_method' value='DELETE'>
+      <input type='submit' value='logout'>
+    </form>
+
+    <%end %>
