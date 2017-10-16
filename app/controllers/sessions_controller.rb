@@ -8,7 +8,7 @@ post '/sessions' do
     login(@user)
     redirect "/users/#{@user.id}"
   else
-    @errors = ['Not up in here']
+    @errors = ['Invalid username or password']
     erb :'sessions/new'
   end
 end

@@ -1,4 +1,4 @@
-<h1>Create an account</h1>
+<h1>Create a musician account</h1>
 
 <% if @errors %>
   <% @errors.each do |error| %>
@@ -11,5 +11,7 @@
   <input type='last_name' name='user[last_name]' placeholder='last name'><br><br>
   <input type='email' name='user[email]' placeholder='email'><br><br>
   <input type='password' name='user[password]' placeholder='password'><br><br>
+  <input type='password' name='user[instrument]' placeholder='instrument'><br><br>
+  <input type='password' name='user[years_experience]' placeholder='years_experience'><br><br>
   <input type='submit' value='register'>
 </form>

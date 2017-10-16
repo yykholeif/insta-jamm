@@ -1,17 +1,20 @@
-<h1>Welcome to our subscription service! Please view all our channels below!</h1>
+<h1>Welcome to Instajamm! Please view all our events (Jamm's) below!</h1>
 
 <ul>
-    <% @channels.each do |channel| %>
+    <% @events.each do |event| %>
     <li>
-      <a href="/channels/<%= channel.id %>"><%= channel.name %></a>
+      <a href="/events/<%= event.id %>"><%= event.name %></a>
       </li>
       <% end %>
     </ul>
 
     <% if !logged_in? %>
-    <form action='/users/new' method='GET'>
+    <form action='/musicians/new' method='GET'>
       <input type='submit' value='register here'> <br><br>
-      <a href='/sessions/new'>Log in</a>
+    </form>
+
+    <form action= '/sessions/new' method='POST'>
+      <input type='submit' value='login'>
     </form>
 
     <% else %>

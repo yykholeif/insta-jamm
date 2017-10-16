@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/channels'
+  redirect '/events'
 end

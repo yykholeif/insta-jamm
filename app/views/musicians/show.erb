@@ -1,0 +1,19 @@
+<h1><%= @musician.first_name + " " + @musician.last_name%></h1>
+
+<p>instruments:
+  <ul>
+    <% @musician.instruments do |instrument| %>
+    <li>
+      <%= instrument.name %>
+      </li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p>years of experience:
+      <%= @musician.years_experience %>
+    </p>
+
+ <form action='/channels' method='GET'>
+   <input type='submit' value='return to homepage'>
+ </form>
