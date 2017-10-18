@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/events'
+  erb :index
 end
