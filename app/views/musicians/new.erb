@@ -1,4 +1,4 @@
-<h1>Create a musician account</h1>
+<h1>Registration</h1>
 
 <% if @errors %>
   <% @errors.each do |error| %>
@@ -6,12 +6,15 @@
   <% end %>
 <% end %>
 
-<form action='/users' method='POST'>
-  <input type='first_name' name='user[first_name]' placeholder='first name'><br><br>
-  <input type='last_name' name='user[last_name]' placeholder='last name'><br><br>
-  <input type='email' name='user[email]' placeholder='email'><br><br>
-  <input type='password' name='user[password]' placeholder='password'><br><br>
-  <input type='password' name='user[instrument]' placeholder='instrument'><br><br>
-  <input type='password' name='user[years_experience]' placeholder='years_experience'><br><br>
-  <input type='submit' value='register'>
+<form action="/musicians" method="POST">
+  <input type="text" name="musician[first_name]" placeholder="firstname"><br><br>
+  <input type="text" name="musician[last_name]" placeholder="lastname"><br><br>
+  <!-- <input type="text" name="musician[instrument]" placeholder="instrument"><br><br> -->
+  <input type="text" name="musician[years_experience]" placeholder="years of experience"]><br><br>
+  <input type="text" name="musician[city]" placeholder="city"><br><br>
+  <input type="text" name="musician[country]" placeholder="country"><br><br>
+  <input type="text" name="musician[postcode]" placeholder="postcode"><br><br>
+  <input type="email" name="musician[email]" placeholder="email"><br><br>
+  <input type="password" name="musician[password_hash]" placeholder="password"><br><br>
+  <input type="submit" value="create profile">
 </form>

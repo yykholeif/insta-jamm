@@ -1,6 +1,6 @@
 helpers do
 
-  def login(user)
+  def login(musician)
     session[:musician_id] = musician.id
   end
 
