@@ -29,3 +29,5 @@ class Musician < ApplicationRecord
 
 
 end
+
+#Google place API research 
