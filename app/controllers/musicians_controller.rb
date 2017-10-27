@@ -1,4 +1,5 @@
 get '/musicians/new' do
+  @instruments = Instrument.all
   erb :"musicians/new"
 end
 

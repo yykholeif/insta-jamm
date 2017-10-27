@@ -23,4 +23,11 @@ class Musician < ApplicationRecord
   end
 
 
+  def convert_to_longitude_latitude
+    #add longitude latitude columns into event and musician table and remove city,postcode from table
+  end
+
+
 end
+
+#Google place API research 
