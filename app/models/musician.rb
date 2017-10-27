@@ -1,6 +1,6 @@
 class Musician < ApplicationRecord
-  has_many :musician_instruments
-  has_many :instruments, through: :musician_instruments
+  has_many :musicianships
+  has_many :instruments_played, through: :musicianships, source: :instrument
   # Remember to create a migration!
   include BCrypt
 

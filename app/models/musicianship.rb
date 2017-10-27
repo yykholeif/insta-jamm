@@ -1,4 +1,4 @@
-class MusicianInstrument < ApplicationRecord
+class Musicianship < ApplicationRecord
   belongs_to :musician
   belongs_to :instrument
 

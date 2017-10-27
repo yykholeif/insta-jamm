@@ -1,7 +1,6 @@
 <h1><%= "#{@musician.first_name}'s Page" %></h1>
 
 <ul>
-  <h4>View your info below</h4>
     <li>
     <label>city: </label><%= @musician.city %>
     </li>
@@ -16,14 +15,21 @@
     </li>
 </ul>
 
-<p>Add your instruments here</p>
-<form action="/musician_instruments" method="POST">
-  <select type="text">
-    <% @instruments.each do |instrument| %>
-      <option name="instrument_id" value="<%= instrument.id %>"> <%= instrument.name %> </option>
-    <% end  %>
-  <input type="submit" value="instrument">
-</form>
+<h3>Instruments played:</h3>
+<ul>
+  <% @musician.instruments_played.each do |instrument| %>
+    <li><%= instrument.name %></li>
+  <% end %>
+</ul>
 
-<iframe src="http://maps.google.com/maps?q=<%= @musician.latitude %>,<%= @musician.longitude %>&z=15&output=embed" width="360" height="270" frameborder="0" style="border:0"></iframe><br><br>
+<p>Add your instruments below:</p>
+<form action="/musicianships" method="POST">
+  <select type="text" name="instrument_id">
+    <% @instruments.each do |instrument| %>
+      <option value="<%= instrument.id %>"> <%= instrument.name %> </option>
+    <% end  %>
+  <input type="submit" value="Add Instrument">
+</form><br>
+
+
 <div id="map_canvas" style="width: 500px; height: 600px;"></div>
