@@ -17,7 +17,8 @@ get '/musicians/locations' do
   @musicians = Musician.all
   musicians_arr = []
   @musicians.each do |musician|
-    musicians_arr << [musician.email, musician.latitude, musician.longitude]
+    list = musician.instruments_played.map { |instrument| instrument.name }.join(", ")
+    musicians_arr << [musician.email, musician.latitude, musician.longitude, list, musician.years_experience]
   end
   content_type :json
   musicians_arr.to_json

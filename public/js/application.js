@@ -42,7 +42,15 @@ function drawMap(markers) {
     // Info Window Content
     var infoWindowContent = markers.map(function(musician) {
       console.log(musician);
-      return ['<div class="info_content"><h3>' + musician[0] + '</h3></div>'];
+      var musician_display =
+        `<div class="info_content">
+            <h3>${musician[0]} </h3>
+            <ul>
+                <li>Instruments played: ${musician[3]}</li>
+                <li>Experience:${musician[4]}</li>
+            </ul>
+        </div>`
+      return [musician_display];
     })
 
     console.log(infoWindowContent);
@@ -63,6 +71,7 @@ function drawMap(markers) {
         // Allow each marker to have an info window
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
+                console.log(infoWindowContent)
                 infoWindow.setContent(infoWindowContent[i][0]);
                 infoWindow.open(map, marker);
             }
