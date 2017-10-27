@@ -1,2 +1,25 @@
 <h1><%= "#{@musician.first_name}'s Page" %></h1>
-<a href="/">homepage</a>
+
+<ul>
+  <h4>View your info below</h4>
+
+      <li>
+      <label>city: </label><%= @musician.city %>
+      </li>
+      <li>
+      <label>state: </label><%= @musician.state %>
+      </li>
+      <li>
+      <label>country: </label><%= @musician.country %>
+      </li>
+      <li>
+      <label>years experience: </label><%= @musician.years_experience %>
+      </li>
+</ul>
+
+<label>Instruments:
+# print list here
+</label><br><br>
+
+<iframe src="http://maps.google.com/maps?q=<%= @musician.latitude %>,<%= @musician.longitude %>&z=15&output=embed" width="360" height="270" frameborder="0" style="border:0"></iframe><br><br>
+<div id="map_canvas" style="width: 500px; height: 600px;"></div>
