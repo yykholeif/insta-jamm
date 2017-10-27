@@ -25,5 +25,6 @@ end
 
 get '/musicians/:id' do
   @musician = Musician.find(params[:id])
+  @instruments = Instrument.all
   erb :'musicians/show'
 end
