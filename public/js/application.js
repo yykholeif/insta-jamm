@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  console.log('called3');
+  loginEventListener();
 });
 console.log('called4');
 jQuery(function($) {
@@ -79,3 +79,28 @@ function drawMap(markers) {
     });
 
 }
+
+    var loginEventListener = function() {
+        $('#log-in').on('click', function(e) {
+            e.preventDefault();
+
+            var link = $(this)
+            var url = link.attr('href')
+
+
+            var call = $.ajax({
+            url: url,
+            method: 'get'
+            })
+
+            call.done(function(response) {
+                $('#main-body').append(response)
+            })
+
+            call.fail(function(error) {
+                console.log(error)
+            })
+
+        })
+    }
+

@@ -1,6 +1,11 @@
 get '/sessions/new' do
   @musician = Musician.new
-  erb :'sessions/new'
+
+  if request.xhr?
+    erb :'sessions/_new', layout: false, locals: {musician: @musician}
+  else
+    erb :'sessions/new'
+  end
 end
 
 post '/sessions' do
