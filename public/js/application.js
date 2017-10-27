@@ -103,6 +103,7 @@ function drawMap(markers) {
             })
 
             call.done(function(response) {
+                $('#log-in-form').remove()
                 $('#main-body').append(response)
             })
 
