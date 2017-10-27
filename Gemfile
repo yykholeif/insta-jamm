@@ -19,6 +19,8 @@ gem 'shotgun'
 gem 'bcrypt'
 gem 'httparty'
 
+gem 'dotenv'
+
 group :development, :test do
   gem 'faker', '~> 1.7.3'
   gem 'rspec', '~> 3.5'
