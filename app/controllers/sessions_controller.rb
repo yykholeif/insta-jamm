@@ -1,19 +1,21 @@
 get '/sessions/new' do
+  @musician = Musician.new
   erb :'sessions/new'
 end
 
 post '/sessions' do
-  @user = User.authenticate(params[:email], params[:password])
-  if @user
-    login(@user)
-    redirect "/users/#{@user.id}"
+  @musician = Musician.find_by(email: params[:email])
+
+  if @musician && @musician.password == params[:password]
+    session[:id] = @musician.id
+    redirect "/musicians/#{@musician.id}"
   else
-    @errors = ['Invalid username or password']
-    erb :'sessions/new'
+    @error = 'Email or password invalid'
+    erb :"sessions/new"
   end
 end
 
 delete '/sessions' do
-  logout
+  session[:id] = nil
   redirect '/'
 end

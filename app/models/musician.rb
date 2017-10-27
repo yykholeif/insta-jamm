@@ -6,23 +6,26 @@ class Musician < ApplicationRecord
 
   after_validation :convert_to_longitude_latitude
 
+  validates :email, :password, presence: true
+  validates :email, uniqueness: true
+
   def password
-    @password ||= Password.new(password_hash)
-  end
+     @password ||= Password.new(password_hash)
+   end
 
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_hash = @password
-  end
+   def password=(new_password)
+     @password = Password.create(new_password)
+     self.password_hash = @password
+   end
 
-  def self.authenticate(email, password)
-    @musician = self.find_by(email: email)
-    if @musician && @musician.password == password
-      return @musician
-    else
-      nil
-    end
-  end
+   def self.authenticate(username, password)
+     @musician = User.find_by(username: username)
+     if @musician && @musician.password == password
+       @musician
+     else
+       nil
+     end
+   end
 
   def full_address
     "#{self.street_address}, #{self.city}, #{self.state} #{self.postcode}"
@@ -37,7 +40,5 @@ class Musician < ApplicationRecord
     #add longitude latitude columns into event and musician table and remove city,postcode from table
   end
 
-
 end
-
 #Google place API research

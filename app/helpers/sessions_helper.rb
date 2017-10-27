@@ -1,21 +1,9 @@
 helpers do
-
-  def login(musician)
-    session[:musician_id] = musician.id
-  end
-
   def logged_in?
-    !!session[:musician_id]
+    !!session[:id]
   end
 
   def current_user
-    if logged_in?
-      User.find(session[:musician_id])
-    end
+    @current_user ||= User.find(session[:id]) if logged_in?
   end
-
-  def logout
-    session[:musician_id] = nil
-  end
-
 end
