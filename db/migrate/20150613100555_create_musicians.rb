@@ -5,10 +5,14 @@ class CreateMusicians < ActiveRecord::Migration[5.0]
       t.string :last_name, :null => false
       t.string :email, :null => false
       t.string :password_hash, :null => false
+      t.string :street_address, :null => false
       t.string :city, :null => false
+      t.string :state, :null => false 
       t.string :country, :null => false
       t.string :postcode, :null => false
       t.integer :years_experience
+      t.float  :latitude
+      t.float  :longitude
       # t.integer :instrument_id, :null => false
 
       t.timestamps
