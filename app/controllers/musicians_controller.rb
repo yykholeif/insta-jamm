@@ -13,6 +13,16 @@ post '/musicians' do
     end
 end
 
+get '/musicians/locations' do
+  @musicians = Musician.all
+  musicians_arr = []
+  @musicians.each do |musician|
+    musicians_arr << [musician.email, musician.latitude, musician.longitude]
+  end
+  content_type :json
+  musicians_arr.to_json
+end
+
 get '/musicians/:id' do
   @musician = Musician.find(params[:id])
   erb :'musicians/show'
