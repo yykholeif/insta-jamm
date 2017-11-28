@@ -41,4 +41,8 @@ class Musician < ApplicationRecord
   end
 
 end
-#Google place API research
+#Convert long/lat to postcode using places API
+#Add ZipCode API returner and methods to return musician postcodes within radius
+#Login with Google/Facebook API
+#include CSS
+#include text/email notification API 
